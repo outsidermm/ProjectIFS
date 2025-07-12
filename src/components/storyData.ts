@@ -4,71 +4,103 @@ export const storyData = [
     title: "",
     groups: [{ name: "", count: 0, color: "bg-blue-500" }],
   },
+
   {
-    title: "Education & Age",
+    title: "Age",
     groups: [
-      { name: "Master's/PhD", count: 25, color: "bg-purple-600" },
-      { name: "Bachelor's", count: 35, color: "bg-purple-400" },
-      { name: "High School", count: 40, color: "bg-purple-200" },
+      { name: "15-29", count: 17, color: "bg-purple-600" },
+      { name: "30-44", count: 48, color: "bg-purple-400" },
+      { name: "45+", count: 35, color: "bg-purple-200" },
     ],
   },
   {
-    title: "Marital Status & Gender",
+    title: "Marital Status",
     groups: [
-      { name: "Married Female", count: 32, color: "bg-pink-600" },
-      { name: "Married Male", count: 28, color: "bg-pink-500" },
-      { name: "Single Female", count: 18, color: "bg-pink-400" },
-      { name: "Single Male", count: 15, color: "bg-pink-300" },
-      { name: "Widowed/Separated", count: 7, color: "bg-pink-200" },
+      { name: "Single", count: 46, color: "bg-pink-300" },
+      { name: "Married", count: 54, color: "bg-pink-500" },
     ],
   },
   {
-    title: "Income & Dependents",
+    title: "Gender",
     groups: [
-      { name: "High Income, No Dependents", count: 22, color: "bg-yellow-600" },
+      { name: "Male", count: 53, color: "bg-pink-500" },
+      { name: "Female", count: 47, color: "bg-pink-400" },
+    ],
+  },
+  {
+    title: "Is Graduated",
+    groups: [
+      { name: "Graduated", count: 18, color: "bg-purple-200" },
+      { name: "Not Graduated", count: 30, color: "bg-purple-400" },
+    ],
+  },
+  {
+    title: "Education",
+    groups: [
+      { name: "High School", count: 18, color: "bg-purple-200" },
+      { name: "Bachelor's", count: 30, color: "bg-purple-400" },
+      { name: "Master's/PhD", count: 51, color: "bg-purple-600" },
+    ],
+  },
+  {
+    title: "Income",
+    groups: [
+      { name: "High Income", count: 34, color: "bg-yellow-600" },
       {
-        name: "High Income, With Dependents",
-        count: 18,
-        color: "bg-yellow-500",
-      },
-      {
-        name: "Medium Income, No Dependents",
-        count: 25,
+        name: "Medium Income",
+        count: 33,
         color: "bg-yellow-400",
       },
+      { name: "Low Income", count: 33, color: "bg-yellow-200" },
+    ],
+  },
+  {
+    title: "Loan Amount",
+    groups: [
+      { name: "Low Loan Amount", count: 35, color: "bg-yellow-200" },
       {
-        name: "Medium Income, With Dependents",
-        count: 20,
-        color: "bg-yellow-300",
+        name: "Medium Loan Amount",
+        count: 36,
+        color: "bg-yellow-400",
       },
-      { name: "Low Income", count: 15, color: "bg-yellow-200" },
+      { name: "High Loan Amount", count: 29, color: "bg-yellow-600" },
+    ],
+  },
+  {
+    title: "Dependents",
+    groups: [
+      { name: "No Dependents", count: 51, color: "bg-yellow-600" },
+      {
+        name: "With Dependents",
+        count: 49,
+        color: "bg-yellow-500",
+      },
     ],
   },
   {
     title: "CIBIL Score",
     groups: [
-      { name: "750+ (Excellent)", count: 22, color: "bg-sky-600" },
-      { name: "700-749 (Good)", count: 31, color: "bg-sky-500" },
-      { name: "650-699 (Fair)", count: 28, color: "bg-sky-400" },
-      { name: "600-649 (Poor)", count: 12, color: "bg-sky-300" },
-      { name: "<600 (Very Poor)", count: 7, color: "bg-sky-200" },
+      { name: "750+ (Good)", count: 52, color: "bg-sky-500" },
+      { name: "500-749 (Fair)", count: 42, color: "bg-sky-300" },
+      { name: "<500 (Very Poor)", count: 6, color: "bg-sky-200" },
     ],
   },
   {
-    title: "Assets & Loan Term",
+    title: "Employment Status",
     groups: [
-      { name: "High Assets, Short Term", count: 28, color: "bg-emerald-600" },
-      { name: "High Assets, Long Term", count: 22, color: "bg-emerald-500" },
-      { name: "Medium Assets, Short Term", count: 25, color: "bg-emerald-400" },
-      { name: "Medium Assets, Long Term", count: 15, color: "bg-emerald-300" },
-      { name: "Low Assets", count: 10, color: "bg-emerald-200" },
+      { name: "Self-employed", count: 50, color: "bg-sky-600" },
+      { name: "Not Self-employed", count: 50, color: "bg-sky-500" },
     ],
   },
   {
-    title: "Final Approval Status",
+    title: "Total Asset Value",
     groups: [
-      { name: "Approved", count: 58, color: "bg-green-500" },
-      { name: "Rejected", count: 42, color: "bg-red-500" },
+      { name: "0M - 8.74M", count: 39, color: "bg-emerald-600" },
+      { name: "8.75M+", count: 61, color: "bg-emerald-500" },
     ],
+  },
+  {
+    title: "",
+    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
   },
 ];
