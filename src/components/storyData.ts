@@ -103,4 +103,12 @@ export const storyData = [
     title: "",
     groups: [{ name: "", count: 0, color: "bg-blue-500" }],
   },
+  {
+    title: "",
+    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+  },
+  {
+    title: "",
+    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+  },
 ];
