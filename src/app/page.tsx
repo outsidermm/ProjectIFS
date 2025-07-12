@@ -8,6 +8,15 @@ export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const containerRef = useRef(null);
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, type: "spring", stiffness: 100 },
+  },
+};
+
   // Create a more natural puddle-like distribution
   const getPositions = (sectionIndex) => {
     const data = storyData[sectionIndex];
@@ -1640,7 +1649,7 @@ export default function Home() {
           }}
         />
       </section>
-      {/* DSS Tool Summary */}
+            {/* Section 1: DSS Summary (Enhanced) */}
       <section className="h-screen bg-gradient-to-b from-white to-gray-100 px-6 py-20 flex flex-col justify-center items-center text-center relative overflow-hidden">
         <motion.div
           animate={{
@@ -1655,7 +1664,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="relative z-10"
+          className="relative z-10 flex flex-col items-center"
         >
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -1663,18 +1672,32 @@ export default function Home() {
             transition={{ duration: 0.8, type: "spring" }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Meet the DSS
+            Meet the DSS 💡
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl text-lg mb-4"
+            className="max-w-3xl text-lg mb-8"
           >
-            Our Decision Support System uses data from over 10,000 profiles to
-            predict your approval chance before you apply.
+            Our Decision Support System analyzes over 10,000 profiles to give
+            you a clear picture of your loan eligibility before you apply.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-white/80 backdrop-blur-sm border border-emerald-300 rounded-lg p-4 shadow-lg text-center"
+          >
+            <p className="text-xl md:text-2xl font-semibold text-emerald-600">
+              94% Predictive Accuracy
+            </p>
+            <p className="text-sm text-gray-600 mt-1">
+              Based on historical application data.
+            </p>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -1689,18 +1712,13 @@ export default function Home() {
         />
       </section>
 
-      {/* Predict Approval Chance */}
-      <section className="h-screen bg-gradient-to-br from-indigo-50 to-blue-100 px-6 py-20 flex flex-col justify-center relative overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute inset-0 bg-gradient-to-r from-indigo-400/10 to-blue-400/10"
-        />
+      {/* Section 2: What You'll Uncover (New Creative Section) */}
+      <section className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 px-6 py-20 flex flex-col justify-center items-center relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="relative z-10"
+          className="relative z-10 text-center"
         >
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
@@ -1708,64 +1726,64 @@ export default function Home() {
             transition={{ duration: 0.8, type: "spring" }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Predict Your Loan Approval
+            Your Personalized Insights
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl text-lg mb-4"
+            className="max-w-2xl mx-auto text-lg mb-12"
           >
-            Based on your profile, our system calculates the likelihood of loan
-            approval before you even apply — saving time and stress.
+            Our DSS doesn't just give you a "yes" or "no." It provides a
+            complete analysis to empower your financial decisions.
           </motion.p>
         </motion.div>
+
         <motion.div
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 left-1/4 w-24 h-24 border-2 border-indigo-300 rounded-full opacity-20"
-        />
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.2 }}
+          className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        >
+          {/* Card 1: Approval Prediction */}
+          <motion.div variants={cardVariants} className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-md border">
+            <div className="text-4xl text-indigo-500 mb-4">{/* <FiCheckCircle /> */}✅</div>
+            <h3 className="text-xl font-bold mb-2">Approval Prediction</h3>
+            <p className="text-gray-600">
+              Get an accurate percentage chance of your loan being approved.
+            </p>
+          </motion.div>
+
+          {/* Card 2: Rejection Analysis */}
+          <motion.div variants={cardVariants} className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-md border">
+            <div className="text-4xl text-red-500 mb-4">{/* <FiXCircle /> */}❌</div>
+            <h3 className="text-xl font-bold mb-2">Rejection Analysis</h3>
+            <p className="text-gray-600">
+              If rejection is likely, we'll pinpoint the reasons, like CIBIL score or income.
+            </p>
+          </motion.div>
+
+          {/* Card 3: Default Risk */}
+          <motion.div variants={cardVariants} className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-md border">
+            <div className="text-4xl text-amber-500 mb-4">{/* <FiShield /> */}🛡️</div>
+            <h3 className="text-xl font-bold mb-2">Default Risk Score</h3>
+            <p className="text-gray-600">
+              Understand your risk profile for defaulting on the loan in the future.
+            </p>
+          </motion.div>
+          
+          {/* Card 4: Recommendations */}
+          <motion.div variants={cardVariants} className="bg-white/70 backdrop-blur-md p-6 rounded-xl shadow-md border">
+            <div className="text-4xl text-green-500 mb-4">{/* <FiTrendingUp /> */}📈</div>
+            <h3 className="text-xl font-bold mb-2">Actionable Steps</h3>
+            <p className="text-gray-600">
+              Receive personalized tips on how to strengthen your profile for a better outcome.
+            </p>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Rejection Reason & Default Risk */}
-      <section className="h-screen bg-gradient-to-br from-red-50 to-orange-100 px-6 py-20 flex flex-col justify-center relative overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="absolute inset-0 bg-gradient-to-r from-red-400/10 to-orange-400/10"
-        />
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative z-10"
-        >
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="text-3xl md:text-5xl font-bold mb-4"
-          >
-            Understand Rejections & Default Risk
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl text-lg mb-4"
-          >
-            If you’re predicted to be rejected, the DSS explains why — from low
-            CIBIL scores to income instability. It also assesses whether you're
-            at risk of default, helping you prepare better.
-          </motion.p>
-        </motion.div>
-        <motion.div
-          animate={{ rotate: [360, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 right-1/4 w-24 h-24 border-2 border-red-300 rounded-full opacity-20"
-        />
-      </section>
-      {/* Conclusion */}
+      {/* Section 3: Conclusion (Enhanced) */}
       <section className="h-screen bg-gradient-to-br from-gray-50 to-gray-200 px-6 py-20 flex flex-col justify-center items-center text-center relative overflow-hidden">
         <motion.div
           animate={{ opacity: [0.05, 0.1, 0.05], scale: [1, 1.05, 1] }}
@@ -1784,7 +1802,7 @@ export default function Home() {
             transition={{ duration: 0.8, type: "spring" }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            What We've Learned
+            Data-Driven Decisions 📊
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, scale: 0.8 }}
@@ -1792,11 +1810,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl text-lg mb-4"
           >
-            Loan eligibility isn’t just a number — it's a combination of age,
-            income, education, credit behaviour, and much more. Through
-            data-driven storytelling, Imagine Financial Services and its clients
-            gain transparency, equity, and the tools to make smarter lending
-            decisions.
+            Loan eligibility is a complex story told by your age, income, credit behavior, and more. We use data to bring transparency and equity to lending, helping both applicants and Imagine Financial Services make smarter, more confident decisions.
           </motion.p>
         </motion.div>
         <motion.div
