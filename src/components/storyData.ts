@@ -2,113 +2,113 @@
 export const storyData = [
   {
     title: "",
-    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+    groups: [{ name: "", count: 0, probability: "" }],
   },
 
   {
     title: "Age",
     groups: [
-      { name: "15-29", count: 17, color: "bg-purple-600" },
-      { name: "30-44", count: 48, color: "bg-purple-400" },
-      { name: "45+", count: 35, color: "bg-purple-200" },
+      { name: "15-29", count: 17, probability: "32" },
+      { name: "30-44", count: 48, probability: "87" },
+      { name: "45+", count: 35, probability: "63" },
     ],
   },
   {
     title: "Marital Status",
     groups: [
-      { name: "Single", count: 46, color: "bg-pink-300" },
-      { name: "Married", count: 54, color: "bg-pink-500" },
+      { name: "Single", count: 46, probability: "61" },
+      { name: "Married", count: 54, probability: "71" },
     ],
   },
   {
     title: "Gender",
     groups: [
-      { name: "Male", count: 53, color: "bg-pink-500" },
-      { name: "Female", count: 47, color: "bg-pink-400" },
+      { name: "Male", count: 53, probability: "69" },
+      { name: "Female", count: 47, probability: "61" },
     ],
   },
   {
     title: "Is Graduated",
     groups: [
-      { name: "Graduated", count: 18, color: "bg-purple-200" },
-      { name: "Not Graduated", count: 30, color: "bg-purple-400" },
+      { name: "Graduated", count: 50, probability: "62" },
+      { name: "Not Graduated", count: 50, probability: "62" },
     ],
   },
   {
     title: "Education",
     groups: [
-      { name: "High School", count: 18, color: "bg-purple-200" },
-      { name: "Bachelor's", count: 30, color: "bg-purple-400" },
-      { name: "Master's/PhD", count: 51, color: "bg-purple-600" },
+      { name: "High School", count: 18, probability: "40" },
+      { name: "Bachelor's", count: 30, probability: "63" },
+      { name: "Master's/PhD", count: 51, probability: "90" },
     ],
   },
   {
     title: "Income",
     groups: [
-      { name: "High Income", count: 34, color: "bg-yellow-600" },
+      { name: "High Income", count: 34, probability: "64" },
       {
         name: "Medium Income",
         count: 33,
-        color: "bg-yellow-400",
+        probability: "63",
       },
-      { name: "Low Income", count: 33, color: "bg-yellow-200" },
+      { name: "Low Income", count: 33, probability: "63" },
     ],
   },
   {
     title: "Loan Amount",
     groups: [
-      { name: "Low Loan Amount", count: 35, color: "bg-yellow-200" },
+      { name: "Low Loan Amount", count: 35, probability: "62" },
       {
         name: "Medium Loan Amount",
         count: 36,
-        color: "bg-yellow-400",
+        probability: "65",
       },
-      { name: "High Loan Amount", count: 29, color: "bg-yellow-600" },
+      { name: "High Loan Amount", count: 29, probability: "52" },
     ],
   },
   {
     title: "Dependents",
     groups: [
-      { name: "No Dependents", count: 51, color: "bg-yellow-600" },
+      { name: "No Dependents", count: 51, probability: "65" },
       {
         name: "With Dependents",
         count: 49,
-        color: "bg-yellow-500",
+        probability: "62",
       },
     ],
   },
   {
     title: "CIBIL Score",
     groups: [
-      { name: "750+ (Good)", count: 52, color: "bg-sky-500" },
-      { name: "500-749 (Fair)", count: 42, color: "bg-sky-300" },
-      { name: "<500 (Very Poor)", count: 6, color: "bg-sky-200" },
+      { name: "750+ (Good)", count: 52, probability: "11" },
+      { name: "500-749 (Fair)", count: 42, probability: "80" },
+      { name: "<500 (Very Poor)", count: 6, probability: "99" },
     ],
   },
   {
     title: "Employment Status",
     groups: [
-      { name: "Self-employed", count: 50, color: "bg-sky-600" },
-      { name: "Not Self-employed", count: 50, color: "bg-sky-500" },
+      { name: "Self-employed", count: 50, probability: "62" },
+      { name: "Not Self-employed", count: 50, probability: "62" },
     ],
   },
   {
     title: "Total Asset Value",
     groups: [
-      { name: "0M - 8.74M", count: 39, color: "bg-emerald-600" },
-      { name: "8.75M+", count: 61, color: "bg-emerald-500" },
+      { name: "0M - 8.74M", count: 39, probability: "65" },
+      { name: "8.75M+", count: 61, probability: "99" },
     ],
   },
   {
     title: "",
-    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+    groups: [{ name: "", count: 0, probability: "0" }],
   },
   {
     title: "",
-    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+    groups: [{ name: "", count: 0, probability: "0" }],
   },
   {
     title: "",
-    groups: [{ name: "", count: 0, color: "bg-blue-500" }],
+    groups: [{ name: "", count: 0, probability: "0" }],
   },
 ];

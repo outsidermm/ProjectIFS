@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { storyData } from "@/components/storyData";
 import AgeSection from "@/components/visualisationSection/ageSection";
 import MaritalStatusSection from "@/components/visualisationSection/maritalStatusSection";
@@ -17,99 +17,40 @@ import TotalAssetValueSection from "@/components/visualisationSection/totalAsset
 import DssSummary from "@/components/DSS/dssSummary";
 import DssDetail from "@/components/DSS/dssDetail";
 import ConclusionSection from "@/components/conclusionSection";
+import { CircleDots } from "@/components/circleDots";
 
-  // FloatingParticles component
-  export const FloatingParticles = ({ color, count }) => {
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(count)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full opacity-60"
-            style={{ backgroundColor: color }}
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-    );
-  };
-
-
+// FloatingParticles component
+export const FloatingParticles = ({ color, count }) => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(count)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 rounded-full opacity-60"
+          style={{ backgroundColor: color }}
+          initial={{
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+          }}
+          animate={{
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+          }}
+          transition={{
+            duration: Math.random() * 10 + 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const containerRef = useRef(null);
-
-  // Create a more natural puddle-like distribution
-  const getPositions = (sectionIndex) => {
-    const data = storyData[sectionIndex];
-    const positions = [];
-    const labelPositions = [];
-
-    if (sectionIndex !== 0 && sectionIndex < storyData.length) {
-      // Natural grouped puddles for other sections
-      let dotIndex = 0;
-      const spacing = 250;
-
-      data.groups.forEach((group, groupIndex) => {
-        const groupCenterX = 100 + groupIndex * spacing;
-        const groupCenterY = 140;
-
-        // Add label position above each group
-        labelPositions.push({
-          x: groupCenterX,
-          y: 20,
-          text: group.name,
-          count: group.count,
-        });
-
-        for (let i = 0; i < group.count; i++) {
-          // Create natural clustering with random positioning
-          const clusterRadius = Math.sqrt(group.count) * 10;
-          const angle = Math.random() * Math.PI * 2;
-          const distance = Math.random() * clusterRadius;
-
-          // Add natural jitter
-          const jitterX = (Math.random() - 0.5) * 15;
-          const jitterY = (Math.random() - 0.5) * 15;
-
-          positions.push({
-            x: Math.cos(angle) * distance + groupCenterX + jitterX,
-            y: Math.sin(angle) * distance + groupCenterY + jitterY,
-            color: group.color,
-            group: groupIndex,
-          });
-          dotIndex++;
-        }
-      });
-    }
-
-    return { positions, labelPositions };
-  };
-
-  // Generate dots with consistent IDs
-  const generateDots = () => {
-    const dots = [];
-    for (let i = 0; i < 100; i++) {
-      dots.push({ id: i });
-    }
-    return dots;
-  };
-
-  const dots = generateDots();
 
   // Handle scroll-based section changes with better timing
   useEffect(() => {
@@ -132,10 +73,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentSection]);
-
-  const { positions: currentPositions, labelPositions } =
-    getPositions(currentSection);
-  const currentData = storyData[currentSection];
 
   // Progress indicator
   const ProgressBar = () => (
@@ -176,8 +113,6 @@ export default function Home() {
     </div>
   );
 
-
-
   return (
     <div
       ref={containerRef}
@@ -186,73 +121,23 @@ export default function Home() {
       <ProgressBar />
       <SectionIndicator />
       {/* Fixed Dot Visualization */}
-      <div className="fixed top-1/2 -mt-20 right-8 transform z-40">
+      <div className="fixed top-1/4 right-8 transform z-40">
         <div className="flex flex-col items-center">
-          <div className="relative w-200 h-75 overflow-hidden">
-            {/* Animated Labels */}
-            <AnimatePresence mode="wait">
-              {labelPositions.map((label, index) => (
-                <motion.div
-                  key={`${currentSection}-label-${index}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    x: label.x,
-                  }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
-                  className="absolute text-center text-gray-700 whitespace-normal break-words"
-                  style={{
-                    left: -50,
-                    top: label.y,
-                    maxWidth: "125px",
-                    transform: "translateX(-50%)",
-                  }}
-                >
-                  {label.text}
-                </motion.div>
-              ))}
-            </AnimatePresence>
-
-            {/* Animated Dots */}
-            <AnimatePresence mode="wait">
-              {dots.map((dot, index) => {
-                const position = currentPositions[index];
-                if (!position) return null;
-
-                return (
-                  <motion.div
-                    key={`${currentSection}-dot-${dot.id}`}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{
-                      scale: 1,
-                      opacity: 0.85,
-                      x: position.x,
-                      y: position.y,
-                    }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: index * 0.005,
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 15,
-                    }}
-                    className={`absolute w-2.5 h-2.5 rounded-full bg-black`}
-                    style={{
-                      left: 0,
-                      top: 0,
-                      transformOrigin: "center",
-                      filter: "none",
-                    }}
-                  />
-                );
-              })}
-            </AnimatePresence>
+          <div className="relative w-200 h-1/2 overflow-hidden">
+            {currentSection !== 0 && currentSection < storyData.length - 3 ? (
+              <CircleDots
+                groups={storyData[currentSection].groups}
+                size={200}
+                dotRadius={3}
+                totalDots={100}
+                horizontalSpacing={40}
+                maxVerticalShift={60}
+                animationDuration={50}
+                animationDelay={0}
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>
@@ -354,7 +239,7 @@ export default function Home() {
       <MaritalStatusSection />
 
       {/* Gender */}
-      <GenderSection  />
+      <GenderSection />
 
       {/* Is Graduated */}
       <IsGraduatedSection />
@@ -369,20 +254,19 @@ export default function Home() {
       <LoanAmountSection />
 
       {/* Dependents */}
-     <DependentSection />
+      <DependentSection />
 
       {/* CIBIL Score */}
       <CIBILSection />
 
       {/* Employment Status */}
-      <EmploymentStatusSection  />
+      <EmploymentStatusSection />
 
       {/* Total Asset Value */}
       <TotalAssetValueSection />
 
       {/* Section 1: DSS Summary (Enhanced) */}
       <DssSummary />
-
 
       {/* Section 2: What You'll Uncover (New Creative Section) */}
       <DssDetail />
