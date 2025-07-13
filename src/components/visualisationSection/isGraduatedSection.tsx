@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FloatingParticles } from "@/app/page";
+import { FloatingParticles } from "@/components/floatingParticles";
 
 export default function IsGraduatedSection() {
   return (

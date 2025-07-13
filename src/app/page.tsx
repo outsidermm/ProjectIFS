@@ -18,35 +18,7 @@ import DssSummary from "@/components/DSS/dssSummary";
 import DssDetail from "@/components/DSS/dssDetail";
 import ConclusionSection from "@/components/conclusionSection";
 import { CircleDots } from "@/components/circleDots";
-
-// FloatingParticles component
-export const FloatingParticles = ({ color, count }) => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(count)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 rounded-full opacity-60"
-          style={{ backgroundColor: color }}
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          animate={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-};
+import { FloatingParticles } from "@/components/floatingParticles";
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);

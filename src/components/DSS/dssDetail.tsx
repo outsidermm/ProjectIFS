@@ -22,7 +22,7 @@ export default function DssDetail() {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-lg mb-12"
+          className="max-w-2xl mx-auto text-xl mb-12"
         >
           Our DSS doesn&apos;t just give you a &quot;yes&quot; or
           &quot;no.&quot; It provides a complete analysis to empower your

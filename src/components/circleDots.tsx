@@ -4,7 +4,6 @@ import { motion, AnimatePresence, useAnimation } from "framer-motion";
 interface Group {
   name: string;
   count: number;
-  probability: string;
 }
 
 interface CircleDotsProps {
@@ -171,7 +170,7 @@ export const CircleDots: React.FC<CircleDotsProps> = ({
   useEffect(() => {
     setAnimatedGroups(groups);
     previousGroupsRef.current = groups;
-  }, []);
+  }, [groups]);
 
   // Calculate total SVG dimensions with extra space for labels
   const totalWidth = Math.max(
@@ -263,7 +262,7 @@ export const CircleDots: React.FC<CircleDotsProps> = ({
                 offsetY,
               );
               const targetGroup = groups[index];
-              const approvalPercentage = group.probability;
+              const approvalPercentage = group.count;
 
               return (
                 <motion.g
@@ -345,7 +344,7 @@ export const CircleDots: React.FC<CircleDotsProps> = ({
                       ease: "easeInOut",
                       delay: index * 0.1 + 0.2,
                       rotate: {
-                        duration: 4,
+                        duration: 1,
                         ease: "linear",
                         repeat: isAnimating ? Infinity : 0,
                       },

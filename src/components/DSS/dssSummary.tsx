@@ -31,7 +31,7 @@ export default function DssSummary() {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl text-lg mb-8"
+          className="max-w-3xl text-xl mb-8"
         >
           Our Decision Support System analyzes over 10,000 profiles to give you
           a clear picture of your loan eligibility before you apply.
@@ -46,7 +46,7 @@ export default function DssSummary() {
           <p className="text-xl md:text-2xl font-semibold text-emerald-600">
             94% Predictive Accuracy
           </p>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-xl text-gray-600 mt-1">
             Based on historical application data.
           </p>
         </motion.div>

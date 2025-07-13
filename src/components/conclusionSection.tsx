@@ -26,7 +26,7 @@ export default function ConclusionSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl text-lg mb-4"
+          className="max-w-3xl text-xl mb-4"
         >
           Loan eligibility is a complex story told by your age, income, credit
           behavior, and more. We use data to bring transparency and equity to

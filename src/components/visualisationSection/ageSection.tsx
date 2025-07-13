@@ -1,4 +1,4 @@
-import { FloatingParticles } from "@/app/page";
+import { FloatingParticles } from "@/components/floatingParticles";
 import { motion } from "framer-motion";
 
 export default function AgeSection() {
