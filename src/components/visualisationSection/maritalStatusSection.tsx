@@ -57,15 +57,11 @@ export default function MaritalStatusSection() {
           className="max-w-4xl mx-5 bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-rose-200/50 shadow-lg"
         >
           <p className="text-xl text-gray-700 leading-relaxed">
+            Married applicants{" "}
             <span className="text-green-600 font-semibold">
-              Married applicants
+              show higher approval probabilities
             </span>{" "}
-            show higher approval probabilities, while
-            <span className="text-red-500 font-semibold">
-              {" "}
-              widowed or separated individuals
-            </span>{" "}
-            have the lowest approval rate segment.
+            than those who are single.
           </p>
         </motion.div>
       </motion.div>

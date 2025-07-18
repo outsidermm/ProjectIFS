@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function EmploymentStatusSection() {
   return (
-    <section className="h-screen bg-gradient-to-br from-orange-50 via-peach-50 to-coral-50 px-6 py-20 flex flex-col justify-center relative overflow-hidden">
+    <section className="h-screen bg-gradient-to-br from-slate-50 via-blue-25 to-indigo-50 px-6 py-20 flex flex-col justify-center relative overflow-hidden">
       <FloatingParticles color="rgba(251, 146, 60, 0.3)" count={20} />
 
       {/* Enhanced animated background overlay */}

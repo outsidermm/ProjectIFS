@@ -52,7 +52,7 @@ export default function IsGraduatedSection() {
         >
           <p className="text-xl text-gray-700 leading-relaxed">
             Applicants who have graduated from high school are
-            <span className="text-emerald-600 font-semibold">
+            {" "}<span className="text-emerald-600 font-semibold">
               equally likely to be approved
             </span>{" "}
             than applicants who have not graduated.
