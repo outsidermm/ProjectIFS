@@ -68,9 +68,9 @@ export const storyData = [
   {
     title: "CIBIL Score",
     groups: [
-      { name: "750+ (Good)", count: 11 },
+      { name: "750+ (Good)", count: 99 },
       { name: "500-749 (Fair)", count: 80 },
-      { name: "<500 (Very Poor)", count: 99 },
+      { name: "<500 (Very Poor)", count: 11 },
     ],
   },
   {

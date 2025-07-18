@@ -51,10 +51,11 @@ export default function IsGraduatedSection() {
           className="max-w-4xl mx-5 bg-white/75 backdrop-blur-sm rounded-2xl p-8 border border-emerald-200/50 shadow-lg"
         >
           <p className="text-xl text-gray-700 leading-relaxed">
+            Applicants who have graduated from high school are
             <span className="text-emerald-600 font-semibold">
-              Applicants who have graduated
+              equally likely to be approved
             </span>{" "}
-            are slightly more likely to be approved.
+            than applicants who have not graduated.
           </p>
         </motion.div>
       </motion.div>
